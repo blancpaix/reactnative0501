@@ -9,8 +9,42 @@ const HomeScreen = ({ navigation }) => {
             <Text stlye={st.text}>Hi There!</Text>
             <Button
                 onPress={() => navigation.navigate('Component')}
-                title = "Go to 컴포넌트 Demo" 
+                title = "Component Demo" 
             />
+            <Button
+                onPress={() => navigation.navigate('List')}
+                title = "List Demo" 
+            />
+            <Button
+                onPress={() => navigation.navigate('Image')}
+                title = "Image Demo" 
+            />
+            <Button
+                onPress={() => navigation.navigate('Counter')}
+                title = "Counter Demo"
+            />
+            <Button
+                onPress={() => navigation.navigate('Color')}
+                title = "Color Demo"
+            />
+            <Button
+                onPress={() => navigation.navigate('Square')}
+                title = "Square Demo"
+            />
+            <Button
+                onPress={() => navigation.navigate('Text')}
+                title = "Text Demo"
+            />
+            <Button
+                onPress={() => navigation.navigate('Box')}
+                title = "Box Demo"
+            />
+
+            {/* 이미지나 텍스트 눌렀을 때 반응에는 이게 좋을듯 */}
+            <TouchableOpacity
+                onPress={() => navigation.navigate('List')}>
+                <Text>Go To 리스트 Demo</Text>
+            </TouchableOpacity>
         </View>
     )
 };
