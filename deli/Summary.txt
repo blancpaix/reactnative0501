@@ -1,0 +1,93 @@
+props return
+
+Object {
+
+  "navigation": Object {
+    
+    "actions": Object {
+      "dismiss": [Function dismiss],
+      "goBack": [Function goBack],
+      "navigate": [Function navigate],
+      "pop": [Function pop],
+      "popToTop": [Function popToTop],
+      "push": [Function push],
+      "replace": [Function replace],
+      "reset": [Function reset],
+      "setParams": [Function setParams],
+    },
+    "addListener": [Function addListener],
+    "dangerouslyGetParent": [Function anonymous],
+    "dismiss": [Function anonymous],
+    "dispatch": [Function anonymous],
+    "emit": [Function emit],
+    "getChildNavigation": [Function getChildNavigation],
+    "getParam": [Function anonymous],
+    "getScreenProps": [Function anonymous],
+    "goBack": [Function anonymous],
+    "isFirstRouteInParent": [Function isFirstRouteInParent],
+    "isFocused": [Function isFocused],
+    "navigate": [Function anonymous],
+    "pop": [Function anonymous],
+    "popToTop": [Function anonymous],
+    "push": [Function anonymous],
+    "replace": [Function anonymous],
+    "reset": [Function anonymous],
+    "router": undefined,
+    "setParams": [Function anonymous],
+    "state": Object {
+      "key": "id-1588728799242-0",
+      "routeName": "Search",
+    },
+  },
+  "screenProps": undefined,
+}
+Info
+10:34
+Object {
+  "navigation": Object {
+    "actions": Object {
+      "dismiss": [Function dismiss],
+      "goBack": [Function goBack],
+      "navigate": [Function navigate],
+      "pop": [Function pop],
+      "popToTop": [Function popToTop],
+      "push": [Function push],
+      "replace": [Function replace],
+      "reset": [Function reset],
+      "setParams": [Function setParams],
+    },
+    "addListener": [Function addListener],
+    "dangerouslyGetParent": [Function anonymous],
+    "dismiss": [Function anonymous],
+    "dispatch": [Function anonymous],
+    "emit": [Function emit],
+    "getChildNavigation": [Function getChildNavigation],
+    "getParam": [Function anonymous],
+    "getScreenProps": [Function anonymous],
+    "goBack": [Function anonymous],
+    "isFirstRouteInParent": [Function isFirstRouteInParent],
+    "isFocused": [Function isFocused],
+    "navigate": [Function anonymous],
+    "pop": [Function anonymous],
+    "popToTop": [Function anonymous],
+    "push": [Function anonymous],
+    "replace": [Function anonymous],
+    "reset": [Function anonymous],
+    "router": undefined,
+    "setParams": [Function anonymous],
+    "state": Object {
+      "key": "id-1588728799242-0",
+      "routeName": "Search",
+    },
+  },
+  "screenProps": undefined,
+}
+
+
+
+그리고 react-navigation의 {withNavigation}
+이전에는 React -navi-> SearchScreen -navi-> ResultScreen
+2단계 구조로 이어졌다면 withNavigaion 으로
+React -navi->SearchScreen
+    -navi-> ResultScreen 이 가능함. 그리고 {navigation} 을 내장하고 있기때문에 그대로 쓰면 됨
+export default withNavigaion(ResultScreen??) 뭐 이런식으로 이제 씀
