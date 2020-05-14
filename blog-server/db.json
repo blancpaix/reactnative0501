@@ -1,0 +1,24 @@
+{
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "API POST",
+      "content": "content for my post"
+    },
+    {
+      "title": "New creat",
+      "content": " Smew content",
+      "id": 2
+    },
+    {
+      "title": "3번 업뎃",
+      "content": "3번 ㄴㄴㄴ헤",
+      "id": 3
+    },
+    {
+      "title": "hgjhgjh",
+      "content": "asdasd",
+      "id": 4
+    }
+  ]
+}
