@@ -6,7 +6,7 @@
       "content": "content for my post"
     },
     {
-      "title": "New creat",
+      "title": "New creat가자 집으로",
       "content": " Smew content",
       "id": 2
     },
@@ -16,9 +16,14 @@
       "id": 3
     },
     {
-      "title": "hgjhgjh",
-      "content": "asdasd",
+      "title": "why this form is empty??",
+      "content": "???what the",
       "id": 4
+    },
+    {
+      "title": "한글을 쳐줘요",
+      "content": "ㄱㄱㄱㄱㄱ",
+      "id": 5
     }
   ]
 }
