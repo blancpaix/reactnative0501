@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { Text, StyleSheet, TextInput, Button } from 'react-native';
 
 const BlogPostForm = ({ initialValue, onEmit}) => {
     const [title, setTitle] = useState(initialValue.title);
@@ -10,11 +10,9 @@ const BlogPostForm = ({ initialValue, onEmit}) => {
             <Text style={st.label}> Set your post's title : </Text>
             <TextInput style={st.input} value={title} onChangeText={(title) => setTitle(title)} />
             <Text style={st.label}> Set your post's content : </Text>
-            <TextInput value={content} onChangeText={setContent} />
-            <Button style={st.input} title="Save Blog Post"
-                onPress={() => {
-                    onEmit(title,content);
-                }}
+            <TextInput style={st.input} value={content} onChangeText={setContent} />
+            <Button style={st.button} title="블로그 포스트 저장"
+                onPress={() => { onEmit(title,content) }}
             />
         </>
     )
@@ -41,6 +39,9 @@ const st = StyleSheet.create({
         fontSize: 20,
         marginBottom: 5,
         marginLeft: 5,
+    },
+    button: {
+        margin : 50
     }
 });
 

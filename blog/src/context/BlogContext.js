@@ -36,8 +36,11 @@ const deleteBlogPost = dispatch => {
 
 // 현재 state 값으로 붙일 필요가없어서 reducer 로 안넘기는듯?
 const addBlogPost = dispatch => {
-    return async (title, content) => {
+    return async (title, content, callback) => {
         await jsonServer.post('/blogposts', { title, content });
+        if (callback) {
+            callback();
+        }
 
     };
 };

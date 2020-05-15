@@ -1,15 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
 import { Context } from '../context/BlogContext';
+import BlogPostForm from '../components/BlogPostForm';
 
 const CreateScreen = ({ navigation }) => {
     const { addBlogPost } = useContext(Context);
-    const [title, setTitle]= useState('');
-    const [content, setContent] = useState('');
 
     return (
-        <View>
-            <Text style={st.label} >Enter Title : </Text>
+        <>
+            {/* <Text style={st.label} >Enter Title : </Text>
             <TextInput style={st.input} value={title} onChangeText={setTitle} />
             <Text style={st.label} >Enter Content : </Text>
             <TextInput style={st.input} value={content} onChangeText={setContent} />
@@ -21,8 +20,13 @@ const CreateScreen = ({ navigation }) => {
                 }}
                 // 여기서 navigation.navigate('Index') 하면 post 되기 이전에 페이지로 넘어가서 구데기임. 그래서 콜백 쓰세요 그러려면 컴포넌트 할당이 필수적인데?
                 // 일단은 돌아가게 해놧는데 리스트 출력이 되는지 먼저 봐야지?
+            /> */}
+            <BlogPostForm 
+                onEmit={(title, content) => {
+                    addBlogPost(title, content, () => navigation.navigate('Index'))
+                }}
             />
-        </View>
+        </>
     )
 };
 
