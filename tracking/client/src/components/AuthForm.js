@@ -4,31 +4,30 @@ import { Text, Input, Button } from 'react-native-elements';
 
 import Spacer from './Spacer';
 
-const AuthForm = () => {
+const AuthForm = ({ headerText, errorMessage, submitBtnText, onSubmit }) => {
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
 
     return (
         <>
             <Spacer>
-                <Text h3>해더</Text>
+                <Text h3>{headerText}</Text>
             </Spacer>
+            <Input label="이메일" value={email} 
+                onChangeText={setEmail}
+                autoCapitalize="none"
+                autoCorrect={false}
+            />
+            <Spacer />
+            <Input label="비밀번호" value={pw}
+                secureTextEntry
+                onChangeText={setPw}
+                autoCapitalize="none"
+                autoCorrect={false}
+            />
+            { errorMessage ? <Text>{errorMessage}</Text> : <Text> </Text>}
             <Spacer>
-                <Input label="이메일" value={email} 
-                    onChangeText={setEmail}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                />
-            </Spacer>
-            <Spacer>
-                <Input label="비밀번호" value={pw}
-                    onChangeText={setPw}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                />
-            </Spacer>
-            <Spacer>
-                <Button title="전송" onPress={() => console.log('전송하기!!')}/>
+                <Button title={submitBtnText} onPress={() => onSubmit({ email, pw })} />
             </Spacer>
         </>
     )

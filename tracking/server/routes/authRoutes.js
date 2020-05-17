@@ -7,13 +7,11 @@ const User = mongoose.model('User');
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-    // console.log(req.body);
-    const { email, password } = req.body;
-
+    const { email, pw } = req.body;
     try {
-        const user = new User({email, password});
+        const user = new User({email, pw});
         await user.save();
-        const token = jwt.sign({ userId : user._id}, 'MY_SECRET_KEY');
+        const token = jwt.sign({ userId : user._id}, 'MY_SECRET_KEY');  // 여기서 _id 는 몽고에서 저장하는 index 같은거 아닌가?? 고유 키
 
         res.send({ token });
     } catch (err) {
@@ -22,9 +20,9 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, pw } = req.body;
     
-    if (!email || !password) {
+    if (!email || !pw) {
         return res.status(422).send({err : '이메일이나 비밀번호 넣으쇼'});
     }
     
@@ -34,7 +32,7 @@ router.post('/signin', async (req, res) => {
     }
 
     try {
-        await user.comparePassword(password);
+        await user.comparePassword(pw);
         const token = jwt.sign({ userId: user._id }, 'MY_SECRET_KEY');
         res.send({token});
     } catch (err) {

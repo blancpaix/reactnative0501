@@ -7,15 +7,16 @@ const userSchema = new mongoose.Schema({
         unique: true,
         required: true,
     },
-    password: {
+    pw: {
         type: String,
         required: true
     }
 });
 
-userSchema.pre('save', (next) => {  // 'save' 함수 훅
+// 내장함수 쓸때는 es6 arrow 잘 안먹힘... 알아두세용~
+userSchema.pre('save', function (next) {  // 'save' 함수 훅
     const user = this;
-    if(!user.isModified('password')) {  // 값이 변경되지 않으면 다음으로
+    if(!user.isModified('pw')) {  // 값이 변경되지 않으면 다음으로 몽구스 함수임
         return next();
     }
     
@@ -24,21 +25,21 @@ userSchema.pre('save', (next) => {  // 'save' 함수 훅
             return next(err);
         }
         
-        bcrypt.hash(user.password, salt, (err, hash) => {
+        bcrypt.hash(user.pw, salt, (err, hash) => {
             if (err) {
                 return next(err)
             }
-            user.password = hash;   // hash값 할당
+            user.pw = hash;   // hash값 할당
             next();
         })
     })
 });
 
-userSchema.methods.comparePassword = candidatePassword => {
+userSchema.methods.comparePassword = function (candidatePw) {
     const user = this;
 
     return new Promise((resolve, reject) => {
-        bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
+        bcrypt.compare(candidatePw, user.pw, (err, isMatch) => {
             if (err) {
                 return reject(err);
             }

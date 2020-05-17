@@ -7,7 +7,7 @@ const Track = mongoose.model('Track');
 
 const router = exporess.Router();
 
-router.use(requireAuth);    // 이걸 쓰니까req.user 에는 값이 항상 담겨있다!
+router.use(requireAuth);    // 이걸 쓰니까 req.user 에는 값이 항상 담겨있다!?? 그냥 모두 적용임 use 쓰면
 
 router.get('/tracks', async (req, res) => {
     const tracks = await Track.find({userId : req.user._id});   // _id 는 index 아님?

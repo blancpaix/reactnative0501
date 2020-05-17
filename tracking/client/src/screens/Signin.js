@@ -1,32 +1,31 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 
 import { Context as AuthContext } from '../context/AuthContext';
 
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
 
-const Signup = ({ navigation }) => {
-    const { state, clearMessage, signup } = useContext(AuthContext);
+const Signin = () => {
+    const { state, clearMessage, signin } = useContext(AuthContext);
 
     return (
         <SafeAreaView style={st.container} >
             <AuthForm 
-                headerText="Tracking 가입"
+                headerText="로그인"
                 errorMessage={state.errorMessage}
-                submitBtnText="회원가입"
-                onSubmit={signup}
+                onSubmit={signin}
+                submitBtnText="로그인"
             />
-            <NavLink
-                routeName="Signin"
-                text="이미 회원이면 로그인 ㄱㄱ 여기 누르셈"
+            <NavLink 
+                routeName="Signup"
+                text="아이디가 없어? 회원가입하러 갈까?"
             />
         </SafeAreaView>
     )
 };
 
-Signup.navigationOptions = () => {
+Signin.navigationOptions = () => {
     return {
         headerShown : false
     }
@@ -39,4 +38,4 @@ const st = StyleSheet.create({
     }
 });
 
-export default Signup;
+export default Signin;
