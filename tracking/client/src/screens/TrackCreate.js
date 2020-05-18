@@ -19,7 +19,7 @@ const TrackCreate = ({ isFocused }) => {
     const [err] = useLocation(isFocused || recording, callback);
 
     return (
-        <SafeAreaView forceInset={{top: 'always'}}>
+        <SafeAreaView forceInset={{ top : 'always'}} >
             <Text h3>경로 생성</Text>
             <Map />
             { err ? <Text>위치 추적 켜주세요 제발ㅠ {err}</Text> : <Text> </Text> }

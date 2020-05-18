@@ -9,7 +9,7 @@ require('dotenv').config();
 const requireAuth = require('./middlewares/requireAuth');
 
 const authRoutes = require('./routes/authRoutes');
-const trackRoutes = require('./routes/authRoutes');
+const trackRoutes = require('./routes/trackRoutes');
 
 const app = express();
 

@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { Provider as LocationProvier } from './src/context/LocationContext';
+import { Provider as TrackProvider } from './src/context/TrackContext';
 
 import ResolveAuth from './src/screens/ResolveAuth';
 import Signup from './src/screens/Signup';
@@ -32,10 +33,12 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <LocationProvier>
-      <AuthProvider>
-        <App ref={(navigator) => setNavigator(navigator)} />
-      </AuthProvider>
-    </LocationProvier>
+    <TrackProvider>
+      <LocationProvier>
+        <AuthProvider>
+          <App ref={(navigator) => setNavigator(navigator)} />
+        </AuthProvider>
+      </LocationProvier>
+    </TrackProvider>
   )
 }
