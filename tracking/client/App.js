@@ -12,6 +12,7 @@ import Signup from './src/screens/Signup';
 import Signin from './src/screens/Signin';
 import TrackList from './src/screens/TrackList';
 import TrackCreate from './src/screens/TrackCreate';
+import TrackDetail from './src/screens/TrackDetail';
 import Account from './src/screens/Account';
 
 import { setNavigator } from './src/navigationRef';
@@ -24,6 +25,7 @@ const switchNavigator = createSwitchNavigator({
   }),
   mainFlow : createBottomTabNavigator({
     TrackList,
+    TrackDetail,
     TrackCreate,
     Account
   })
